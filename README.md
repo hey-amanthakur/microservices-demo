@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/microservices-demo/microservices-demo.svg?branch=master)](https://travis-ci.org/microservices-demo/microservices-demo)
+[![CI](https://github.com/microservices-demo/microservices-demo/actions/workflows/main.yaml/badge.svg)](https://github.com/microservices-demo/microservices-demo/actions/workflows/main.yaml)
 
 # DEPRECATED: Sock Shop : A Microservice Demo Application
 
