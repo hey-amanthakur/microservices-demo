@@ -20,7 +20,7 @@ docker-%: .dockerimage
 	  run \
 	  --rm \
 	  -it \
-	  -u ${UID}:${GID} \
+	  -u $(shell id -u):$(shell id -g) \
 	  -v ${PWD}:/workdir \
 	  manifests-image \
 	  make $*
