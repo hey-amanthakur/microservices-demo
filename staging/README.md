@@ -45,7 +45,7 @@ Use the scripts in this directory to set up a Kubernetes cluster on AWS from a B
 * To set sock-shop services to update automatically you can set it with the command below
 
   ```
-  for svc in front-end catalogue orders queue-master user cart catalogue user-db catalogue-db payment shipping; do
+  for svc in front-end catalogue carts catalogue-db carts-db orders orders-db queue-master rabbitmq session-db shipping user user-db payment; do
     fluxctl automate --service=sock-shop/$svc
   done
   ```
