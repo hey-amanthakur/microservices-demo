@@ -79,7 +79,7 @@ resource "aws_security_group" "terraform" {
   vpc_id = "${aws_vpc.terraform.id}"
 
   ingress {
-    protocol = -1
+    protocol = "-1"
     from_port = 0
     to_port = 0
     cidr_blocks = [
@@ -87,7 +87,7 @@ resource "aws_security_group" "terraform" {
   }
 
   egress {
-    protocol = -1
+    protocol = "-1"
     from_port = 0
     to_port = 0
     cidr_blocks = [

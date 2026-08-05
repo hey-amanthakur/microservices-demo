@@ -32,7 +32,7 @@ end.parse!
 
 unless options.key?(:services)
     puts "\e[31mno services specified\e[0m"
-    exit!
+    exit(1)
 end
 
 unless options.key?(:retry)
@@ -53,12 +53,17 @@ services = options[:services].split(',')
           if options.key?(:hostname)
               url = "#{options[:hostname]}/#{url}"
           end
-          resp = Net::HTTP.get_response(url, '/health')
+          uri = URI.parse("http://#{url}/health")
+          resp = Net::HTTP.start(uri.host, uri.port) do |http|
+              http.read_timeout = options[:timeout] if options[:timeout]
+              http.get(uri.request_uri)
+          end
       rescue
           health[service] = "err"
       else
-          json = JSON.parse(resp.body)['health']
-          json.each do |item|
+          statuses = JSON.parse(resp.body)
+          statuses = statuses['health'] if statuses.is_a?(Hash) && statuses.key?('health')
+          statuses.each do |item|
               health[item["service"]] = item["status"]
           end
       end

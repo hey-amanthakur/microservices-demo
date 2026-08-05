@@ -3,10 +3,11 @@ kind: Service
 metadata:
   annotations:
     prometheus.io/scrape: 'true'
-    prometheus.io/path: '/alertmanager/metrics'
+    prometheus.io/path: '/metrics'
   labels:
     name: alertmanager
   name: alertmanager
+  namespace: monitoring
 spec:
   selector:
     app: alertmanager

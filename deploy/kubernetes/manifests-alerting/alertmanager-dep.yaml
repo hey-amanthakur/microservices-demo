@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: alertmanager
+  namespace: monitoring
 spec:
   replicas: 1
   selector:
@@ -15,7 +16,7 @@ spec:
     spec:
       containers:
       - name: alertmanager
-        image: prom/alertmanager:latest
+        image: prom/alertmanager:v0.27.0
         env:
           - name: SLACK_HOOK_URL
             valueFrom:
@@ -37,4 +38,4 @@ spec:
         configMap:
           name: alertmanager
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux

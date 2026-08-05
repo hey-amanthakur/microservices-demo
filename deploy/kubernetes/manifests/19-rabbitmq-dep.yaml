@@ -37,9 +37,9 @@ spec:
               - DAC_OVERRIDE
           readOnlyRootFilesystem: true
       - name: rabbitmq-exporter
-        image: kbudde/rabbitmq-exporter
+        image: kbudde/rabbitmq-exporter:v0.29.0
         ports:
         - containerPort: 9090
           name: exporter
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux

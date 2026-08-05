@@ -1,7 +1,7 @@
-output "# SSH key" {
+output "ssh_key" {
   value = "\nexport KEY=${var.private_key_file}"
 }
 
-output "# instance" {
-  value = "\nexport IP=${aws_instance.minimesos.public_dns}"
+output "instance_ip" {
+  value = "\nexport IP=${aws_instance.minimesos.0.public_dns}"
 }

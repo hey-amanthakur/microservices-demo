@@ -2,7 +2,7 @@ version: '2'
 
 services:
     prometheus:
-        image: prom/prometheus
+        image: prom/prometheus:v2.45.0
         container_name: prometheus
         volumes:
           - ./prometheus.yml:/etc/prometheus/prometheus.yml
@@ -30,7 +30,7 @@ services:
         ports:
           - 9100:9100
     alertmanager:
-        image: prom/alertmanager
+        image: prom/alertmanager:v0.27.0
         ports:
           - 9093:9093
         volumes:
@@ -39,7 +39,7 @@ services:
           - '--config.file=/etc/alertmanager/config.yml'
           - '--storage.path=/alertmanager'
     grafana:
-        image: grafana/grafana
+        image: grafana/grafana:7.3.7
         depends_on:
           - prometheus
         ports:

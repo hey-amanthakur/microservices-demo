@@ -27,12 +27,12 @@ def service_qps_graph(datasource, serviceTitle, serviceName):
         ),
         targets=[
             Target(
-                expr='sum(rate(request_duration_seconds_count{name="%s",status_code=~"2..",route!="metrics"}[1m])) * 100' % (serviceName),
+                expr='sum(rate(request_duration_seconds_count{name="%s",status_code=~"2..",route!="metrics"}[1m]))' % (serviceName),
                 legendFormat="2xx",
                 refId='A',
             ),
             Target(
-                expr='sum(rate(request_duration_seconds_count{name="%s",status_code=~"4.+|5.+"}[1m])) * 100' % (serviceName),
+                expr='sum(rate(request_duration_seconds_count{name="%s",status_code=~"4.+|5.+"}[1m]))' % (serviceName),
                 legendFormat="4xx/5xx",
                 refId='B',
             ),

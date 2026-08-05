@@ -7,6 +7,9 @@ gen-complete-demo:
 .PHONY: check-complete-demo
 check-complete-demo:
 	awk '{print}' ${MANIFESTS}/* | diff complete-demo.yaml -
+.PHONY: clean
+clean:
+	rm -f .dockerimage
 .dockerimage: Dockerfile
 	docker build -t manifests-image .
 	touch .dockerimage

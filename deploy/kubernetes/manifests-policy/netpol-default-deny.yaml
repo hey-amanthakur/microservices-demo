@@ -3,10 +3,13 @@ kind: Namespace
 apiVersion: v1
 metadata:
   name: sock-shop
-  annotations:
-    net.beta.kubernetes.io/network-policy: |
-      {
-        "ingress": {
-          "isolation": "DefaultDeny"
-        }
-      }
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny
+  namespace: sock-shop
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress

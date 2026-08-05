@@ -63,7 +63,7 @@ resource "aws_instance" "k8s-node" {
   }
 
   provisioner "local-exec" {
-    command = "ssh -i ${var.private_key_file} -o StrictHostKeyChecking=no ubuntu@${self.private_ip} sudo `cat join.cmd`"
+    command = "ssh -i ${var.private_key_file} -o StrictHostKeyChecking=no ubuntu@${self.private_ip} sudo \"$(cat join.cmd)\""
   }
 
 }
@@ -110,7 +110,7 @@ resource "aws_instance" "k8s-master" {
   }
 
   provisioner "local-exec" {
-    command = "scp -i ${var.private_key_file} -o StrictHostKeyChecking=no ubuntu@${self.private_ip}:~/config ~/.kube/"
+    command = "mkdir -p ~/.kube && scp -i ${var.private_key_file} -o StrictHostKeyChecking=no ubuntu@${self.private_ip}:~/config ~/.kube/"
   }
 }
 

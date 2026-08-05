@@ -42,7 +42,7 @@ ls -l *.json
 To import the dashboards, update the `deploy/kubernetes/manifests-monitoring/grafana-configmap.yaml` file with
 each dashboard JSON accordingly.
 For example, to update the *Sock Shop Performance* dashboard, find the `sock-shop-performance-dashboard.json` line on the `grafana-configmap.yaml`
-file and fill the field with the contents of the `sock-sock-performance-dashboard.json` file.
+file and fill the field with the contents of the `sock-shop-performance-dashboard.json` file.
 
 The same process needs to be followed for the rest of the dashboards.
 

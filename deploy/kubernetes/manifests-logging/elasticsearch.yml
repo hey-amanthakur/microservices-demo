@@ -17,13 +17,13 @@ spec:
         name: elasticsearch
     spec:
       containers:
-       - image: elasticsearch
+       - image: elasticsearch:6.8.23
          name: elasticsearch
          ports:
           - name: elasticsearch
             containerPort: 9200
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service

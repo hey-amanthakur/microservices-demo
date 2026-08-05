@@ -53,7 +53,7 @@ spec:
           emptyDir:
             medium: Memory
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
@@ -91,7 +91,7 @@ spec:
     spec:
       containers:
       - name: carts-db
-        image: mongo
+        image: mongo:3.4
         ports:
         - name: mongo
           containerPort: 27017
@@ -112,7 +112,7 @@ spec:
           emptyDir:
             medium: Memory
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
@@ -183,7 +183,7 @@ spec:
           initialDelaySeconds: 180
           periodSeconds: 3
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
@@ -231,7 +231,7 @@ spec:
         - name: mysql
           containerPort: 3306
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
@@ -298,7 +298,7 @@ spec:
           initialDelaySeconds: 30
           periodSeconds: 3
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
@@ -367,7 +367,7 @@ spec:
           emptyDir:
             medium: Memory
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
@@ -405,7 +405,7 @@ spec:
     spec:
       containers:
       - name: orders-db
-        image: mongo
+        image: mongo:3.4
         ports:
         - name: mongo
           containerPort: 27017
@@ -426,7 +426,7 @@ spec:
           emptyDir:
             medium: Memory
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
@@ -494,7 +494,7 @@ spec:
           initialDelaySeconds: 180
           periodSeconds: 3
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
@@ -546,7 +546,7 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
@@ -603,12 +603,12 @@ spec:
               - DAC_OVERRIDE
           readOnlyRootFilesystem: true
       - name: rabbitmq-exporter
-        image: kbudde/rabbitmq-exporter
+        image: kbudde/rabbitmq-exporter:v0.29.0
         ports:
         - containerPort: 9090
           name: exporter
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
@@ -650,7 +650,7 @@ spec:
       labels:
         name: session-db
       annotations:
-        prometheus.io.scrape: "false"
+        prometheus.io/scrape: "false"
     spec:
       containers:
       - name: session-db
@@ -668,7 +668,7 @@ spec:
               - SETUID
           readOnlyRootFilesystem: true
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
@@ -736,7 +736,7 @@ spec:
           emptyDir:
             medium: Memory
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
@@ -786,7 +786,7 @@ spec:
         ports:
         - containerPort: 80
         env:
-        - name: mongo
+        - name: MONGO_HOST
           value: user-db:27017
         securityContext:
           runAsNonRoot: true
@@ -810,7 +810,7 @@ spec:
           initialDelaySeconds: 180
           periodSeconds: 3
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
@@ -849,7 +849,7 @@ spec:
     spec:
       containers:
       - name: user-db
-        image: weaveworksdemos/user-db:0.3.0
+        image: weaveworksdemos/user-db:0.4.0
 
         ports:
         - name: mongo
@@ -871,7 +871,7 @@ spec:
           emptyDir:
             medium: Memory
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service

@@ -5,10 +5,9 @@ metadata:
   name: cortex-access
   namespace: sock-shop
 spec:
-  podSelector:
-    matchLabels:
+  podSelector: {}
   ingress:
     - from:
-        - podSelector:
+        - namespaceSelector:
             matchLabels:
-              name: cortex
+              name: monitoring

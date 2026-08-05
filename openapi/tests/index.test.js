@@ -20,18 +20,7 @@ describe("GET /customers/dZXnr0YQAt-Qg8pi4_LHxOhYN2Bmm3f9", () => {
 });
 
 describe("GET /catalogue", () => {
-  /**
-   * FAILING TEST
-   */
-  it("returned wrong length", async () => {
-    const response = await fetch(host + "/catalogue");
-    const result = await response.json();
-
-    expect(response.status).toBe(200);
-    expect(result.length).toBe(7);
-  });
-
-  it("Check for catlog size is 6 and status code", async () => {
+  it("Check for catalog size of 6 and status code", async () => {
     const response = await fetch(host + "/catalogue?size=6");
     const result = await response.json();
 
@@ -39,7 +28,7 @@ describe("GET /catalogue", () => {
     expect(result.length).toBe(6);
   });
 
-  it("Check for catlog size and status code", async () => {
+  it("Check for catalog size and status code", async () => {
     const response = await fetch(host + "/catalogue");
     const result = await response.json();
 

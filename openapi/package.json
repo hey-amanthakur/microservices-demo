@@ -5,8 +5,7 @@
   "private": true,
   "description": "Verify microservices API endpoints against the specification",
   "engines": {
-    "node": "6",
-    "npm": "3"
+    "node": ">=14"
   },
   "scripts": {
     "test": "jest -w 1 --ci --verbose"
@@ -16,8 +15,8 @@
     "@babel/plugin-transform-modules-commonjs": "^7.21.5",
     "dredd": "1.5.0",
     "jest": "^29.5.0",
-    "mongodb": "",
-    "mysql": "",
+    "mongodb": "^5.4.0",
+    "mysql": "^2.18.1",
     "node-fetch": "2.6.0"
   }
 }
