@@ -40,7 +40,7 @@ complete: Tests took 792ms
 # Run with docker
 Start microservices demo app with docker compose:
 ```
-cd /path/to/microservices-demo/deploy/docker-only/
+cd /path/to/microservices-demo/deploy/docker-compose/
 docker-compose up -d
 ```
 
